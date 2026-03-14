@@ -22,21 +22,55 @@ To write a program to implement the the Logistic Regression Model to Predict the
 ## Program:
 ```
 /*
-Program to implement the the Logistic Regression Model to Predict the Placement Status of Student.
-Developed by: Siva R
-RegisterNumber:  212225100050
-*/
-from google.colab import drive
-drive.mount('/content/drive')
-
+# Import required libraries
 import pandas as pd
-data=pd.read_csv("drive/MyDrive/ML/Placement_Data.csv")
-data.head()
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix
+
+# Create sample dataset
+data = {
+    'CGPA': [7.5, 8.2, 6.8, 9.0, 5.5, 7.0, 8.5, 6.0],
+    'Internships': [1, 2, 0, 3, 0, 1, 2, 0],
+    'Projects': [2, 3, 1, 4, 1, 2, 3, 1],
+    'Communication': [7, 8, 6, 9, 5, 6, 8, 5],
+    'Placement': [1, 1, 0, 1, 0, 0, 1, 0]
+}
+
+# Convert to DataFrame
+df = pd.DataFrame(data)
+
+# Input features
+X = df[['CGPA', 'Internships', 'Projects', 'Communication']]
+
+# Target variable
+y = df['Placement']
+
+# Split data into training and testing
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create Logistic Regression model
+model = LogisticRegression()
+
+# Train the model
+model.fit(X_train, y_train)
+
+# Predict placement
+y_pred = model.predict(X_test)
+
+# Evaluate model
+accuracy = accuracy_score(y_test, y_pred)
+cm = confusion_matrix(y_test, y_pred)
+
+print("Predicted Placement:", y_pred)
+print("Accuracy:", accuracy)
+print("Confusion Matrix:\n", cm)
 ```
 
 ## Output:
 ![the Logistic Regression Model to Predict the Placement Status of Student](sam.png)
-<img width="1420" height="251" alt="image" src="https://github.com/user-attachments/assets/1d3d10ef-0ab1-4c36-9259-90adc0d0e549" />
+
 
 
 
