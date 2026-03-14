@@ -71,6 +71,10 @@ print("Confusion Matrix:\n", cm)
 ## Output:
 ![the Logistic Regression Model to Predict the Placement Status of Student](sam.png)
 
-
+Predicted Placement: [1 0]
+Accuracy: 1.0
+Confusion Matrix:
+ [[1 0]
+ [0 1]]
 ## Result:
 Thus the program to implement the the Logistic Regression Model to Predict the Placement Status of Student is written and verified using python programming.
