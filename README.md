@@ -70,7 +70,7 @@ print("Confusion Matrix:\n", cm)
 
 ## Output:
 ![the Logistic Regression Model to Predict the Placement Status of Student](sam.png)
-
+![alt text](<Screenshot 2026-03-14 100929.png>)
 
 
 
